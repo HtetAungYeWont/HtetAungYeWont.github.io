@@ -1,300 +1,918 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
+<!doctype html>
+<html lang="en" data-theme="lime">
+  <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MySHOP</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+    <meta
+      name="description"
+      content="Htet Aung — Video Editor and Creative Content Creator portfolio."
+    />
+    <meta name="theme-color" content="#0a0a0d" />
+    <title>HAYW — Video Editor & Creative Content Creator</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230a0a0d%22/><text y=%22.72em%22 x=%22.15em%22 font-size=%2262%22 font-family=%22Arial%22 font-weight=%22900%22 fill=%22%23a6ff4d%22>HA</text></svg>"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script defer src="assets/js/script.js"></script>
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
-        .navbar {
-            /* background: linear-gradient(to left, #FFA500, #2121db); */
-            background-color: black;
-        }
+    <header class="site-header" id="top">
+      <nav class="nav shell" aria-label="Main navigation">
+        <a class="brand magnetic" href="#home" aria-label="Htet Aung home">
+          <span class="brand-mark">HAYW</span>
+          <span class="brand-name">Htet Aung Ye Wont</span>
+        </a>
 
-        .custom-navbar a:hover {
-            color: #FFA500;
-        }
-
-        .product-card img {
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .product-card img:hover {
-            transform: scale(1.1);
-        }
-
-        .footer {
-            background: black;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            margin-top: auto;
-        }
-
-        .custom-navbar {
-            background-color: #f8f9fa;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .custom-navbar a {
-            text-decoration: none;
-            margin-right: 20px;
-            color: #000;
-        }
-
-        .offcanvas-start {
-            width: 250px;
-        }
-
-        /* Align text and button in card */
-        .product-card .card-body {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-            text-align: center;
-        }
-
-        .product-card .card-title {
-            margin-bottom: 15px;
-        }
-
-        .product-card .btn {
-            align-self: center;
-            margin-top: auto;
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- Main Header with search, user, cart -->
-    <nav class="navbar navbar-expand-lg px-4 py-3">
-        <a class="navbar-brand" href="#" style="color: white;"><i class="fa-solid fa-bag-shopping"></i> MySHOP</a>
-        <button class="btn btn-outline-secondary me-2 d-lg-none" type="button" data-bs-toggle="offcanvas"
-            data-bs-target="#sidebarOffcanvas" style="color: white;">
-            <i class="fas fa-bars"></i>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-links"
+          aria-label="Open navigation"
+        >
+          <span></span><span></span>
         </button>
-        <form class="d-none d-md-flex mx-auto w-50">
-            <input class="form-control me-2" type="search" placeholder="Find products..." />
-        </form>
-        <div class="d-flex align-items-center ms-auto">
-            <a href="#" class="text-decoration-none me-3" style="color: white;"><i class=" fas fa-user"></i></a>
-            <a href="#" class="text-decoration-none" me-3 style="color: white;">
-                <i class="fas fa-shopping-cart"></i><span class="badge bg-primary">0</span>
-            </a>
+
+        <div class="nav-links" id="nav-links">
+          <a href="#showreel">Showreel</a>
+          <a href="#reels">Reels</a>
+          <a href="#services">What I Do</a>
+          <a href="#graphics">Graphics</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
         </div>
-    </nav>
 
-    <div class="custom-navbar px-4 py-2 d-none d-lg-block">
-        <a href="#">Home</a>
-        <a href="#">New Arrivals</a>
-        <a href="#">Best Sellers</a>
-        <a href="#">Genres</a>
-        <a href="#">Contact</a>
-    </div>
-
-    <!-- Sidebar Offcanvas (for all screen sizes) -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarOffcanvas">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Menu</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        <div class="theme-picker" aria-label="Choose accent color">
+          <button
+            class="theme-dot active"
+            data-theme-value="lime"
+            aria-label="Lime theme"
+          ></button>
+          <button
+            class="theme-dot"
+            data-theme-value="violet"
+            aria-label="Violet theme"
+          ></button>
+          <button
+            class="theme-dot"
+            data-theme-value="cyan"
+            aria-label="Cyan theme"
+          ></button>
+          <button
+            class="theme-dot"
+            data-theme-value="orange"
+            aria-label="Orange theme"
+          ></button>
         </div>
-        <div class="offcanvas-body">
-            <div class="accordion" id="sidebarAccordion">
-                <!-- Categories -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingCategories">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseCategories" aria-expanded="false"
-                            aria-controls="collapseCategories">
-                            Categories
-                        </button>
-                    </h2>
-                    <div id="collapseCategories" class="accordion-collapse collapse" aria-labelledby="headingCategories"
-                        data-bs-parent="#sidebarAccordion">
-                        <div class="accordion-body">
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="text-decoration-none">Fashion</a></li>
-                                <li><a href="#" class="text-decoration-none">Electronics</a></li>
-                                <li><a href="#" class="text-decoration-none">Accessories</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+      </nav>
+    </header>
 
-                <!-- Brands -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingBrands">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseBrands" aria-expanded="false" aria-controls="collapseBrands">
-                            Brands
-                        </button>
-                    </h2>
-                    <div id="collapseBrands" class="accordion-collapse collapse" aria-labelledby="headingBrands"
-                        data-bs-parent="#sidebarAccordion">
-                        <div class="accordion-body">
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="text-decoration-none">Beat</a></li>
-                                <li><a href="#" class="text-decoration-none">Jordan</a></li>
-                                <li><a href="#" class="text-decoration-none">BOSCH</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+    <main>
+      <section class="hero section" id="home">
+        <div class="hero-shade"></div>
+        <div class="hero-orbit orbit-one"></div>
+        <div class="hero-orbit orbit-two"></div>
 
-            </div>
-        </div>
-    </div>
+        <div class="shell hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow reveal">
+              Video Editor · Creative Content Creator
+            </p>
+            <h1
+              class="hero-title"
+              aria-label="I turn ideas into scroll stopping stories"
+            >
+              <span class="title-line reveal-text">I turn ideas into</span>
+              <span class="title-line title-accent reveal-text"
+                >scroll-stopping</span
+              >
+              <span class="title-line reveal-text">stories.</span>
+            </h1>
+            <p class="hero-intro reveal">
+              I’m <strong>Htet Aung Ye Wont</strong>. I create energetic reels,
+              product promotions, visual stories and marketing graphics designed
+              to catch attention and communicate clearly.
+            </p>
 
-    <div class="container-fluid">
-        <div class="row">
-
-            <!-- Sidebar for large screens -->
-            <div class="col-lg-2 d-none d-lg-block bg-light p-3">
-                <h5>Menu</h5>
-                <div class="accordion" id="sidebarAccordionLg">
-                    <!-- Categories -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingCategoriesLg">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseCategoriesLg" aria-expanded="false"
-                                aria-controls="collapseCategoriesLg">
-                                Categories
-                            </button>
-                        </h2>
-                        <div id="collapseCategoriesLg" class="accordion-collapse collapse"
-                            aria-labelledby="headingCategoriesLg" data-bs-parent="#sidebarAccordionLg">
-                            <div class="accordion-body">
-                                <ul class="list-unstyled">
-                                    <li><a href="#" class="text-decoration-none">Fashion</a></li>
-                                    <li><a href="#" class="text-decoration-none">Electronics</a></li>
-                                    <li><a href="#" class="text-decoration-none">Accessories</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Brands -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingBrandsLg">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseBrandsLg" aria-expanded="false"
-                                aria-controls="collapseBrandsLg">
-                                Brands
-                            </button>
-                        </h2>
-                        <div id="collapseBrandsLg" class="accordion-collapse collapse" aria-labelledby="headingBrandsLg"
-                            data-bs-parent="#sidebarAccordionLg">
-                            <div class="accordion-body">
-                                <ul class="list-unstyled">
-                                    <li><a href="#" class="text-decoration-none">Beat</a></li>
-                                    <li><a href="#" class="text-decoration-none">Jordan</a></li>
-                                    <li><a href="#" class="text-decoration-none">BOSCH</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="rotating-line reveal">
+              <span>I create</span>
+              <strong
+                class="rotating-word"
+                data-words='["Creative Reels","Product Videos","Social Content","Graphic Designs","Visual Stories"]'
+                >Creative Reels</strong
+              >
             </div>
 
-            <!-- Main Content -->
-            <main class="col-lg-10 col-md-12 col-12 p-4">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
-                    <!-- Product Card 1 -->
-                    <div class="col">
-                        <div class="card product-card h-100">
-                            <img src="images/a3.webp" class="card-img-top" alt="Product 1" />
-                            <div class="card-body">
-                                <h6 class="card-title">Air Jordan 1 Low</h6>
-                                <p class="text-success">$150.99</p>
-                                <a href="#" class="btn btn-success btn-sm">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="hero-actions reveal">
+              <a class="button button-primary magnetic" href="#reels"
+                >Explore my work <span>↘</span></a
+              >
+              <a class="button button-ghost magnetic" href="#contact"
+                >Let’s work together</a
+              >
+            </div>
 
-                    <!-- Product Card 2 -->
-                    <div class="col">
-                        <div class="card product-card h-100">
-                            <img src="images/beats.jpg" class="card-img-top" alt="Product 2" />
-                            <div class="card-body">
-                                <h6 class="card-title">Beat Solo 4</h6>
-                                <p class="text-success">$100.99</p>
-                                <a href="#" class="btn btn-success btn-sm">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="hero-meta reveal">
+              <div><strong>4+</strong><span>Years editing</span></div>
+              <div><strong>1.5+</strong><span>Years professional</span></div>
+              <div><strong>100+</strong><span>Featured works</span></div>
+            </div>
+          </div>
 
-                    <!-- Product Card 3 -->
-                    <div class="col">
-                        <div class="card product-card h-100">
-                            <img src="images/coffee_machine" class="card-img-top" alt="Product 3" />
-                            <div class="card-body">
-                                <h6 class="card-title">BOSCH 800 Series</h6>
-                                <p class="text-success">$209.99</p>
-                                <a href="#" class="btn btn-success btn-sm">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 4 -->
-                    <div class="col">
-                        <div class="card product-card h-100">
-                            <img src="images/jacket.jpg" class="card-img-top" alt="Product 4" />
-                            <div class="card-body">
-                                <h6 class="card-title">H&M Biker Jacket</h6>
-                                <p class="text-success">$279.99</p>
-                                <a href="#" class="btn btn-success btn-sm">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 5 -->
-                    <div class="col">
-                        <div class="card product-card h-100">
-                            <img src="images/a7.avif" class="card-img-top" alt="Product 5" />
-                            <div class="card-body">
-                                <h6 class="card-title">Apple Watch Series 7</h6>
-                                <p class="text-success">$509.99</p>
-                                <a href="#" class="btn btn-success btn-sm">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 6 -->
-                    <div class="col">
-                        <div class="card product-card h-100">
-                            <img src="images/dyson.jpg" class="card-img-top" alt="Product 6" />
-                            <div class="card-body">
-                                <h6 class="card-title">Dyson Supersonic Nural</h6>
-                                <p class="text-success">$400.99</p>
-                                <a href="#" class="btn btn-success btn-sm">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </main>
+          <div class="portrait-wrap reveal-scale">
+            <div class="portrait-frame">
+              <img
+                src="assets/images/profile-image.jpg"
+                alt="Placeholder portrait for Htet Aung"
+              />
+              <div class="portrait-label">
+                <span class="status-dot"></span>
+                Available for creative work
+              </div>
+            </div>
+            <div class="floating-tag tag-one">EDIT</div>
+            <div class="floating-tag tag-two">DESIGN</div>
+            <div class="floating-tag tag-three">CREATE</div>
+            <svg class="scribble" viewBox="0 0 180 180" aria-hidden="true">
+              <path
+                d="M21 98c41-68 111-78 135-22 17 39-23 89-77 75-36-9-57-47-28-77"
+              />
+            </svg>
+          </div>
         </div>
-    </div>
 
-    <footer class="footer text-white text-center py-3">
-        © 2025 All rights reserved.
+        <a class="scroll-cue" href="#showreel" aria-label="Scroll to showreel">
+          <span>Scroll to explore</span><i></i>
+        </a>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>VIDEO EDITING</span><i>✦</i><span>STORYTELLING</span><i>✦</i
+          ><span>PRODUCT PROMOTION</span><i>✦</i><span>GRAPHIC DESIGN</span
+          ><i>✦</i><span>SOUND DESIGN</span><i>✦</i><span>CAPTIONS</span
+          ><i>✦</i> <span>VIDEO EDITING</span><i>✦</i><span>STORYTELLING</span
+          ><i>✦</i><span>PRODUCT PROMOTION</span><i>✦</i
+          ><span>GRAPHIC DESIGN</span><i>✦</i><span>SOUND DESIGN</span><i>✦</i
+          ><span>CAPTIONS</span><i>✦</i>
+        </div>
+      </div>
+
+      <section class="section showreel" id="showreel">
+        <div class="shell">
+          <div class="section-heading split-heading">
+            <div>
+              <p class="eyebrow reveal">01 · Featured work</p>
+              <h2 class="reveal-text">
+                One minute.<br /><span class="stroke-text"
+                  >My creative world.</span
+                >
+              </h2>
+            </div>
+            <p class="section-copy reveal">
+              A quick look at editing, storytelling, transitions, captions,
+              sound design, visual effects and promotional content.
+            </p>
+          </div>
+
+          <div class="showreel-card reveal-scale">
+            <div class="video-shell">
+              <video
+                autoplay
+                loop
+                playsinline
+                preload="metadata"
+                class="featured-video"
+              >
+                <source src="video/video1.mp4" type="video/mp4" />
+                Your browser does not support HTML video.
+              </video>
+
+              <div class="corner-note">
+                Replace the YouTube ID with your showreel
+              </div>
+            </div>
+            <div class="showreel-details">
+              <div>
+                <p class="project-kicker">Featured Showreel · 2026</p>
+                <h3>Stories in Motion</h3>
+              </div>
+              <div class="project-tags">
+                <span>Editing</span><span>Captions</span><span>Sound</span
+                ><span>Motion</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro-strip">
+        <div class="shell intro-grid">
+          <p class="eyebrow reveal">More than software</p>
+          <blockquote class="reveal-text">
+            “I combine <em>pacing, emotion and clear marketing</em> to make
+            content people want to finish watching.”
+          </blockquote>
+          <div class="mini-about reveal">
+            <p>
+              From a raw idea to a polished final export, I focus on the small
+              details that make content feel intentional.
+            </p>
+            <a href="#about">More about me <span>→</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reels" id="reels">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow reveal">02 · Selected reels</p>
+            <div class="heading-row">
+              <h2 class="reveal-text">
+                Short-form that<br /><span class="gradient-text"
+                  >earns attention.</span
+                >
+              </h2>
+              <p class="section-copy reveal">
+                Nine featured vertical edits. Hover to preview, filter by
+                category, or open a reel in the full-screen viewer.
+              </p>
+            </div>
+          </div>
+
+          <div class="filters reveal" role="group" aria-label="Filter reels">
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="product">Product</button>
+            <button class="filter" data-filter="creative">Creative</button>
+            <button class="filter" data-filter="social">Social</button>
+          </div>
+
+          <div class="reel-grid">
+            <article
+              class="reel-card reveal"
+              data-category="product"
+              data-video="assets/videos/reel-preview-1.mp4"
+              data-title="Product Launch Reel"
+            >
+              <div class="reel-media">
+                <video
+                  muted
+                  loop
+                  playsinline
+                  poster="assets/images/reel-01.jpg"
+                >
+                  <source
+                    src="assets/videos/reel-preview-1.mp4"
+                    type="video/mp4"
+                  /></video
+                ><button
+                  class="play-chip"
+                  aria-label="Open Product Launch Reel"
+                >
+                  Play</button
+                ><span class="reel-number">01</span>
+              </div>
+              <div class="reel-info">
+                <h3>Product Launch</h3>
+                <p>Promotion · Captions · Sound</p>
+              </div>
+            </article>
+            <article
+              class="reel-card reveal"
+              data-category="creative"
+              data-video="assets/videos/reel-preview-2.mp4"
+              data-title="Creative Comedy Edit"
+            >
+              <div class="reel-media">
+                <video
+                  muted
+                  loop
+                  playsinline
+                  poster="assets/images/reel-02.jpg"
+                >
+                  <source
+                    src="assets/videos/reel-preview-2.mp4"
+                    type="video/mp4"
+                  /></video
+                ><button
+                  class="play-chip"
+                  aria-label="Open Creative Comedy Edit"
+                >
+                  Play</button
+                ><span class="reel-number">02</span>
+              </div>
+              <div class="reel-info">
+                <h3>Creative Comedy</h3>
+                <p>Timing · B-roll · Effects</p>
+              </div>
+            </article>
+            <article
+              class="reel-card reveal"
+              data-category="social"
+              data-video="assets/videos/reel-preview-3.mp4"
+              data-title="Social Story Reel"
+            >
+              <div class="reel-media">
+                <video
+                  muted
+                  loop
+                  playsinline
+                  poster="assets/images/reel-03.jpg"
+                >
+                  <source
+                    src="assets/videos/reel-preview-3.mp4"
+                    type="video/mp4"
+                  /></video
+                ><button class="play-chip" aria-label="Open Social Story Reel">
+                  Play</button
+                ><span class="reel-number">03</span>
+              </div>
+              <div class="reel-info">
+                <h3>Social Story</h3>
+                <p>Storytelling · Pacing · Text</p>
+              </div>
+            </article>
+            <article
+              class="reel-card reveal"
+              data-category="product"
+              data-video="assets/videos/reel-preview-2.mp4"
+              data-title="Tool Demo Reel"
+            >
+              <div class="reel-media">
+                <video
+                  muted
+                  loop
+                  playsinline
+                  poster="assets/images/reel-04.jpg"
+                >
+                  <source
+                    src="assets/videos/reel-preview-2.mp4"
+                    type="video/mp4"
+                  /></video
+                ><button class="play-chip" aria-label="Open Tool Demo Reel">
+                  Play</button
+                ><span class="reel-number">04</span>
+              </div>
+              <div class="reel-info">
+                <h3>Tool Demonstration</h3>
+                <p>Product · Features · Marketing</p>
+              </div>
+            </article>
+            <article
+              class="reel-card reveal"
+              data-category="creative"
+              data-video="assets/videos/reel-preview-1.mp4"
+              data-title="Fast-Paced Edit"
+            >
+              <div class="reel-media">
+                <video
+                  muted
+                  loop
+                  playsinline
+                  poster="assets/images/reel-05.jpg"
+                >
+                  <source
+                    src="assets/videos/reel-preview-1.mp4"
+                    type="video/mp4"
+                  /></video
+                ><button class="play-chip" aria-label="Open Fast-Paced Edit">
+                  Play</button
+                ><span class="reel-number">05</span>
+              </div>
+              <div class="reel-info">
+                <h3>Fast-Paced Edit</h3>
+                <p>Transitions · Motion · Rhythm</p>
+              </div>
+            </article>
+            <article
+              class="reel-card reveal"
+              data-category="social"
+              data-video="assets/videos/reel-preview-3.mp4"
+              data-title="Talking Head Edit"
+            >
+              <div class="reel-media">
+                <video
+                  muted
+                  loop
+                  playsinline
+                  poster="assets/images/reel-06.jpg"
+                >
+                  <source
+                    src="assets/videos/reel-preview-3.mp4"
+                    type="video/mp4"
+                  /></video
+                ><button class="play-chip" aria-label="Open Talking Head Edit">
+                  Play</button
+                ><span class="reel-number">06</span>
+              </div>
+              <div class="reel-info">
+                <h3>Talking Head</h3>
+                <p>Captions · B-roll · Retention</p>
+              </div>
+            </article>
+            <article
+              class="reel-card reveal"
+              data-category="product"
+              data-video="assets/videos/reel-preview-3.mp4"
+              data-title="Commercial Reel"
+            >
+              <div class="reel-media">
+                <video
+                  muted
+                  loop
+                  playsinline
+                  poster="assets/images/reel-07.jpg"
+                >
+                  <source
+                    src="assets/videos/reel-preview-3.mp4"
+                    type="video/mp4"
+                  /></video
+                ><button class="play-chip" aria-label="Open Commercial Reel">
+                  Play</button
+                ><span class="reel-number">07</span>
+              </div>
+              <div class="reel-info">
+                <h3>Commercial Reel</h3>
+                <p>Product · Visual Story · CTA</p>
+              </div>
+            </article>
+            <article
+              class="reel-card reveal"
+              data-category="creative"
+              data-video="assets/videos/reel-preview-1.mp4"
+              data-title="AI-Assisted Concept"
+            >
+              <div class="reel-media">
+                <video
+                  muted
+                  loop
+                  playsinline
+                  poster="assets/images/reel-08.jpg"
+                >
+                  <source
+                    src="assets/videos/reel-preview-1.mp4"
+                    type="video/mp4"
+                  /></video
+                ><button
+                  class="play-chip"
+                  aria-label="Open AI-Assisted Concept"
+                >
+                  Play</button
+                ><span class="reel-number">08</span>
+              </div>
+              <div class="reel-info">
+                <h3>AI-Assisted Concept</h3>
+                <p>Concept · Generation · Editing</p>
+              </div>
+            </article>
+            <article
+              class="reel-card reveal"
+              data-category="social"
+              data-video="assets/videos/reel-preview-2.mp4"
+              data-title="Lifestyle Social Reel"
+            >
+              <div class="reel-media">
+                <video
+                  muted
+                  loop
+                  playsinline
+                  poster="assets/images/reel-09.jpg"
+                >
+                  <source
+                    src="assets/videos/reel-preview-2.mp4"
+                    type="video/mp4"
+                  /></video
+                ><button
+                  class="play-chip"
+                  aria-label="Open Lifestyle Social Reel"
+                >
+                  Play</button
+                ><span class="reel-number">09</span>
+              </div>
+              <div class="reel-info">
+                <h3>Lifestyle Social</h3>
+                <p>Atmosphere · Music · Story</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section services" id="services">
+        <div class="shell">
+          <div class="section-heading split-heading">
+            <div>
+              <p class="eyebrow reveal">03 · What I can do</p>
+              <h2 class="reveal-text">
+                Concept to final<br /><span class="stroke-text">export.</span>
+              </h2>
+            </div>
+            <p class="section-copy reveal">
+              Two core tools, one connected workflow: build the visual idea,
+              then make it move.
+            </p>
+          </div>
+
+          <div class="tool-cards">
+            <article class="tool-card tool-capcut reveal-scale">
+              <div class="tool-top">
+                <div
+                  class="tool-logo capcut-logo"
+                  aria-label="CapCut logo placeholder"
+                >
+                  <span></span><span></span>
+                </div>
+                <p>VIDEO EDITING</p>
+              </div>
+              <h3>CapCut</h3>
+              <p class="tool-description">
+                Fast, platform-ready editing for content that feels energetic,
+                clear and polished.
+              </p>
+              <ul>
+                <li>Creative and comedic reels</li>
+                <li>Product promotion videos</li>
+                <li>Captions and subtitles</li>
+                <li>B-roll and visual storytelling</li>
+                <li>Transitions and visual effects</li>
+                <li>Sound effects and music sync</li>
+                <li>Pacing and retention editing</li>
+                <li>AI-assisted content creation</li>
+              </ul>
+              <div class="tool-rings" aria-hidden="true">
+                <i></i><i></i><i></i>
+              </div>
+            </article>
+
+            <article class="tool-card tool-canva reveal-scale">
+              <div class="tool-top">
+                <div
+                  class="tool-logo canva-logo"
+                  aria-label="Canva logo placeholder"
+                >
+                  C
+                </div>
+                <p>GRAPHIC DESIGN</p>
+              </div>
+              <h3>Canva</h3>
+              <p class="tool-description">
+                Eye-catching marketing visuals that support the video and
+                strengthen the message.
+              </p>
+              <ul>
+                <li>Social media graphics</li>
+                <li>Product posters and promotions</li>
+                <li>Video thumbnails and covers</li>
+                <li>Marketing content design</li>
+                <li>Presentation layouts</li>
+                <li>Brand and campaign visuals</li>
+                <li>Creative concept development</li>
+                <li>Platform-specific resizing</li>
+              </ul>
+              <div class="tool-rings" aria-hidden="true">
+                <i></i><i></i><i></i>
+              </div>
+            </article>
+          </div>
+
+          <div class="workflow-line reveal">
+            <span>IDEA</span><i></i><span>DESIGN</span><i></i><span>EDIT</span
+            ><i></i><span>REFINE</span><i></i><span>DELIVER</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section graphics" id="graphics">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow reveal">04 · Graphic design</p>
+            <div class="heading-row">
+              <h2 class="reveal-text">
+                Visuals built to<br /><span class="gradient-text"
+                  >support the story.</span
+                >
+              </h2>
+              <p class="section-copy reveal">
+                Nine graphic examples presented in a responsive editorial
+                gallery. Click any piece to view it larger.
+              </p>
+            </div>
+          </div>
+
+          <div class="graphics-grid">
+            <button
+              class="graphic-card tall reveal"
+              data-image="assets/images/graphic-01.jpg"
+              data-caption="Product Drop"
+            >
+              <img
+                src="assets/images/graphic-01.jpg"
+                alt="Product Drop graphic design placeholder"
+              /><span>Product Drop</span>
+            </button>
+            <button
+              class="graphic-card reveal"
+              data-image="assets/images/graphic-02.jpg"
+              data-caption="Social Campaign"
+            >
+              <img
+                src="assets/images/graphic-02.jpg"
+                alt="Social Campaign graphic design placeholder"
+              /><span>Social Campaign</span>
+            </button>
+            <button
+              class="graphic-card wide reveal"
+              data-image="assets/images/graphic-03.jpg"
+              data-caption="Clean Visuals"
+            >
+              <img
+                src="assets/images/graphic-03.jpg"
+                alt="Clean Visuals graphic design placeholder"
+              /><span>Clean Visuals</span>
+            </button>
+            <button
+              class="graphic-card reveal"
+              data-image="assets/images/graphic-04.jpg"
+              data-caption="Bold Promo"
+            >
+              <img
+                src="assets/images/graphic-04.jpg"
+                alt="Bold Promo graphic design placeholder"
+              /><span>Bold Promo</span>
+            </button>
+            <button
+              class="graphic-card tall reveal"
+              data-image="assets/images/graphic-05.jpg"
+              data-caption="Creative Reel"
+            >
+              <img
+                src="assets/images/graphic-05.jpg"
+                alt="Creative Reel graphic design placeholder"
+              /><span>Creative Reel</span>
+            </button>
+            <button
+              class="graphic-card reveal"
+              data-image="assets/images/graphic-06.jpg"
+              data-caption="Brand Story"
+            >
+              <img
+                src="assets/images/graphic-06.jpg"
+                alt="Brand Story graphic design placeholder"
+              /><span>Brand Story</span>
+            </button>
+            <button
+              class="graphic-card wide reveal"
+              data-image="assets/images/graphic-07.jpg"
+              data-caption="Premium Edit"
+            >
+              <img
+                src="assets/images/graphic-07.jpg"
+                alt="Premium Edit graphic design placeholder"
+              /><span>Premium Edit</span>
+            </button>
+            <button
+              class="graphic-card reveal"
+              data-image="assets/images/graphic-08.jpg"
+              data-caption="Motion First"
+            >
+              <img
+                src="assets/images/graphic-08.jpg"
+                alt="Motion First graphic design placeholder"
+              /><span>Motion First</span>
+            </button>
+            <button
+              class="graphic-card tall reveal"
+              data-image="assets/images/graphic-09.jpg"
+              data-caption="Stop the Scroll"
+            >
+              <img
+                src="assets/images/graphic-09.jpg"
+                alt="Stop the Scroll graphic design placeholder"
+              /><span>Stop the Scroll</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section process">
+        <div class="shell">
+          <div class="section-heading split-heading">
+            <div>
+              <p class="eyebrow reveal">05 · Creative process</p>
+              <h2 class="reveal-text">
+                A clear process.<br /><span class="stroke-text"
+                  >A better result.</span
+                >
+              </h2>
+            </div>
+            <p class="section-copy reveal">
+              Good creative work is not random. Every project moves through four
+              focused stages.
+            </p>
+          </div>
+
+          <div class="process-grid">
+            <article class="process-step reveal">
+              <span>01</span>
+              <h3>Understand</h3>
+              <p>
+                I study the product, audience, objective and platform before
+                editing begins.
+              </p>
+            </article>
+            <article class="process-step reveal">
+              <span>02</span>
+              <h3>Plan</h3>
+              <p>
+                I shape the visual direction, hook, structure, references and
+                key message.
+              </p>
+            </article>
+            <article class="process-step reveal">
+              <span>03</span>
+              <h3>Create</h3>
+              <p>
+                I edit footage, captions, graphics, sound, motion and supporting
+                visuals.
+              </p>
+            </article>
+            <article class="process-step reveal">
+              <span>04</span>
+              <h3>Refine</h3>
+              <p>
+                I improve pacing, clarity, details and export settings for the
+                final platform.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about" id="about">
+        <div class="shell about-grid">
+          <div class="about-sticky">
+            <p class="eyebrow reveal">06 · About me</p>
+            <h2 class="reveal-text">
+              Creative thinking.<br /><span class="gradient-text"
+                >Technical mindset.</span
+              >
+            </h2>
+          </div>
+
+          <div class="about-content">
+            <p class="about-lead reveal">
+              I’m a video editor and creative content creator with
+              <strong>4+ years of editing experience</strong> and
+              <strong>1.5+ years of professional industry experience.</strong>
+            </p>
+            <p class="reveal">
+              My background in computing and creative media helps me combine
+              technical problem-solving with visual storytelling. I enjoy
+              transforming ordinary footage and product information into content
+              that is clear, attractive and useful for digital marketing.
+            </p>
+
+            <div class="stats-grid">
+              <div class="stat reveal">
+                <strong data-count="4" data-suffix="+">0</strong
+                ><span>Years editing</span>
+              </div>
+              <div class="stat reveal">
+                <strong data-count="18" data-suffix="+">0</strong
+                ><span>Featured works</span>
+              </div>
+              <div class="stat reveal">
+                <strong data-count="2" data-suffix="">0</strong
+                ><span>Core disciplines</span>
+              </div>
+              <div class="stat reveal">
+                <strong data-count="100" data-suffix="%">0</strong
+                ><span>Creative focus</span>
+              </div>
+            </div>
+
+            <div class="about-details reveal">
+              <div>
+                <span>Education</span><strong>HND Diploma in Computing</strong
+                ><small>Youth International College</small>
+              </div>
+              <div>
+                <span>Focus</span
+                ><strong>Short-form, Product & Marketing</strong
+                ><small>Social media-first creative content</small>
+              </div>
+              <div>
+                <span>Tools</span
+                ><strong>CapCut · DaVinci Resolve · Canva</strong
+                ><small>Plus AI-powered creative tools</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section skills-section">
+        <div class="skills-marquee" aria-hidden="true">
+          <div>
+            <span>VIDEO STORYTELLING</span><span>CAPTIONS</span
+            ><span>B-ROLL</span><span>MOTION GRAPHICS</span
+            ><span>PRODUCT PROMOTION</span><span>SOUND DESIGN</span
+            ><span>VISUAL EFFECTS</span>
+          </div>
+        </div>
+        <div class="shell skill-groups">
+          <article class="skill-group reveal">
+            <span>01</span>
+            <h3>Video Editing</h3>
+            <p>
+              Pacing, B-roll, subtitles, transitions, music synchronization,
+              sound effects and visual polish.
+            </p>
+          </article>
+          <article class="skill-group reveal">
+            <span>02</span>
+            <h3>Creative Content</h3>
+            <p>
+              Reels, product demonstrations, marketing content, social campaigns
+              and visual storytelling.
+            </p>
+          </article>
+          <article class="skill-group reveal">
+            <span>03</span>
+            <h3>Graphic Design</h3>
+            <p>
+              Posters, thumbnails, promotional visuals, campaign graphics and
+              presentation layouts.
+            </p>
+          </article>
+          <article class="skill-group reveal">
+            <span>04</span>
+            <h3>AI-Assisted Creation</h3>
+            <p>
+              Concept development, visual generation, creative testing and
+              efficient production workflows.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="contact-glow" aria-hidden="true"></div>
+        <div class="shell contact-inner">
+          <p class="eyebrow reveal">07 · Let’s create something</p>
+          <h2 class="contact-title reveal-text">
+            Have a product,<br />a story or an idea?
+          </h2>
+          <p class="contact-subtitle reveal">
+            Let’s turn it into content people remember.
+          </p>
+          <div class="contact-actions reveal">
+            <a
+              class="button button-primary magnetic"
+              href="mailto:your-email@example.com"
+              >your-email@example.com <span>↗</span></a
+            >
+            <a
+              class="button button-ghost magnetic"
+              href="assets/documents/README.txt"
+              download
+              >Download CV</a
+            >
+          </div>
+          <div class="social-row reveal">
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            <a href="#" aria-label="TikTok">TikTok</a>
+            <a href="#" aria-label="YouTube">YouTube</a>
+            <a href="#" aria-label="Instagram">Instagram</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="shell">
+        <span>© <span id="year"></span> Htet Aung</span
+        ><span>Edited, designed and built with intention.</span
+        ><a href="#top">Back to top ↑</a>
+      </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <dialog class="media-modal" id="media-modal">
+      <button class="modal-close" aria-label="Close viewer">×</button>
+      <div class="modal-stage"></div>
+      <p class="modal-caption"></p>
+    </dialog>
 
+    <noscript
+      ><div class="noscript">
+        This portfolio uses JavaScript for animations, filters and media
+        viewers.
+      </div></noscript
+    >
+  </body>
 </html>
