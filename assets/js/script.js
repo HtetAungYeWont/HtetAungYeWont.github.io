@@ -197,3 +197,25 @@
     if (heroVideo && y < window.innerHeight * 1.2) heroVideo.style.transform = `scale(1.05) translateY(${y * .02}px)`;
   }, { passive: true });
 })();
+
+//video
+const featuredVideo = document.querySelector(".featured-video");
+
+if (featuredVideo) {
+  const videoObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+          featuredVideo.play().catch(() => {});
+        } else {
+          featuredVideo.pause();
+        }
+      });
+    },
+    {
+      threshold: [0, 0.5, 1]
+    }
+  );
+
+  videoObserver.observe(featuredVideo);
+}
