@@ -193,6 +193,46 @@
                 Your browser does not support HTML video.
               </video>
 
+              <div class="video-controls">
+                <button
+                  class="video-play-button"
+                  type="button"
+                  aria-label="Play video"
+                >
+                  ▶
+                </button>
+
+                <span class="video-current-time">0:00</span>
+
+                <input
+                  class="video-progress"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="0"
+                  step="0.1"
+                  aria-label="Video progress"
+                />
+
+                <span class="video-duration">0:00</span>
+
+                <button
+                  class="video-mute-button"
+                  type="button"
+                  aria-label="Unmute video"
+                >
+                  🔇
+                </button>
+
+                <button
+                  class="video-fullscreen-button"
+                  type="button"
+                  aria-label="Enter fullscreen"
+                >
+                  ⛶
+                </button>
+              </div>
+
               <div class="corner-note">Featured showreel</div>
             </div>
 
@@ -587,110 +627,111 @@
         <div class="shell">
           <div class="section-heading">
             <p class="eyebrow reveal">04 · Graphic design</p>
+
             <div class="heading-row">
               <h2 class="reveal-text">
-                Visuals built to<br /><span class="gradient-text"
-                  >support the story.</span
-                >
+                Visuals built to<br />
+                <span class="gradient-text">support the story.</span>
               </h2>
+
               <p class="section-copy reveal">
-                Nine graphic examples presented in a responsive editorial
-                gallery. Click any piece to view it larger.
+                Commercial posters and YouTube thumbnails designed to attract
+                attention and communicate clearly. Click any design to view it
+                larger.
               </p>
             </div>
           </div>
 
-          <div class="graphics-grid">
-            <button
-              class="graphic-card tall reveal"
-              data-image="assets/images/graphic-01.jpg"
-              data-caption="Product Drop"
-            >
-              <img
-                src="assets/images/graphic-01.jpg"
-                alt="Product Drop graphic design placeholder"
-              /><span>Product Drop</span>
-            </button>
-            <button
-              class="graphic-card reveal"
-              data-image="assets/images/graphic-02.jpg"
-              data-caption="Social Campaign"
-            >
-              <img
-                src="assets/images/graphic-02.jpg"
-                alt="Social Campaign graphic design placeholder"
-              /><span>Social Campaign</span>
-            </button>
-            <button
-              class="graphic-card wide reveal"
-              data-image="assets/images/graphic-03.jpg"
-              data-caption="Clean Visuals"
-            >
-              <img
-                src="assets/images/graphic-03.jpg"
-                alt="Clean Visuals graphic design placeholder"
-              /><span>Clean Visuals</span>
-            </button>
-            <button
-              class="graphic-card reveal"
-              data-image="assets/images/graphic-04.jpg"
-              data-caption="Bold Promo"
-            >
-              <img
-                src="assets/images/graphic-04.jpg"
-                alt="Bold Promo graphic design placeholder"
-              /><span>Bold Promo</span>
-            </button>
-            <button
-              class="graphic-card tall reveal"
-              data-image="assets/images/graphic-05.jpg"
-              data-caption="Creative Reel"
-            >
-              <img
-                src="assets/images/graphic-05.jpg"
-                alt="Creative Reel graphic design placeholder"
-              /><span>Creative Reel</span>
-            </button>
-            <button
-              class="graphic-card reveal"
-              data-image="assets/images/graphic-06.jpg"
-              data-caption="Brand Story"
-            >
-              <img
-                src="assets/images/graphic-06.jpg"
-                alt="Brand Story graphic design placeholder"
-              /><span>Brand Story</span>
-            </button>
-            <button
-              class="graphic-card wide reveal"
-              data-image="assets/images/graphic-07.jpg"
-              data-caption="Premium Edit"
-            >
-              <img
-                src="assets/images/graphic-07.jpg"
-                alt="Premium Edit graphic design placeholder"
-              /><span>Premium Edit</span>
-            </button>
-            <button
-              class="graphic-card reveal"
-              data-image="assets/images/graphic-08.jpg"
-              data-caption="Motion First"
-            >
-              <img
-                src="assets/images/graphic-08.jpg"
-                alt="Motion First graphic design placeholder"
-              /><span>Motion First</span>
-            </button>
-            <button
-              class="graphic-card tall reveal"
-              data-image="assets/images/graphic-09.jpg"
-              data-caption="Stop the Scroll"
-            >
-              <img
-                src="assets/images/graphic-09.jpg"
-                alt="Stop the Scroll graphic design placeholder"
-              /><span>Stop the Scroll</span>
-            </button>
+          <!-- Commercial Posters -->
+          <div class="graphics-category">
+            <div class="graphics-category-heading reveal">
+              <p class="project-kicker">Commercial Design</p>
+              <h3>Product Posters</h3>
+            </div>
+
+            <div class="poster-grid">
+              <button
+                class="graphic-card poster-card reveal"
+                data-image="assets/images/gd1.png"
+                data-caption="Commercial Poster 01"
+              >
+                <img
+                  src="assets/images/gd1.png"
+                  alt="Commercial product poster design"
+                />
+                <span>Commercial Poster 01</span>
+              </button>
+
+              <button
+                class="graphic-card poster-card reveal"
+                data-image="assets/images/gd7.png"
+                data-caption="Commercial Poster 02"
+              >
+                <img
+                  src="assets/images/gd7.png"
+                  alt="Commercial product poster design"
+                />
+                <span>Commercial Poster 02</span>
+              </button>
+
+              <button
+                class="graphic-card poster-card reveal"
+                data-image="assets/images/gd4.png"
+                data-caption="Commercial Poster 03"
+              >
+                <img
+                  src="assets/images/gd4.png"
+                  alt="Commercial product poster design"
+                />
+                <span>Commercial Poster 03</span>
+              </button>
+
+              <button
+                class="graphic-card poster-card reveal"
+                data-image="assets/images/gd8.png"
+                data-caption="Commercial Poster 04"
+              >
+                <img
+                  src="assets/images/gd8.png"
+                  alt="Commercial product poster design"
+                />
+                <span>Commercial Poster 04</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- YouTube Thumbnails -->
+          <div class="graphics-category">
+            <div class="graphics-category-heading reveal">
+              <p class="project-kicker">Content Design</p>
+              <h3>YouTube Thumbnails</h3>
+            </div>
+
+            <div class="thumbnail-grid">
+              <button
+                class="graphic-card thumbnail-card reveal"
+                data-image="assets/images/Thumbnail.png"
+                data-caption="YouTube Thumbnail 01"
+              >
+                <img
+                  src="assets/images/Thumbnail.png"
+                  alt="YouTube thumbnail design"
+                />
+                <span>YouTube Thumbnail 01</span>
+              </button>
+
+              <button
+                class="graphic-card thumbnail-card reveal"
+                data-image="assets/images/Thumbnail2.png"
+                data-caption="YouTube Thumbnail 02"
+              >
+                <img
+                  src="assets/images/Thumbnail2.png"
+                  alt="YouTube thumbnail design"
+                />
+                <span>YouTube Thumbnail 02</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>

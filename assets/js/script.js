@@ -199,23 +199,154 @@
 })();
 
 //video
+const videoShell = document.querySelector(".video-shell");
 const featuredVideo = document.querySelector(".featured-video");
 
-if (featuredVideo) {
-  const videoObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-          featuredVideo.play().catch(() => {});
-        } else {
-          featuredVideo.pause();
-        }
-      });
-    },
-    {
-      threshold: [0, 0.5, 1]
-    }
-  );
+const playButton = document.querySelector(".video-play-button");
+const muteButton = document.querySelector(".video-mute-button");
+const fullscreenButton = document.querySelector(
+  ".video-fullscreen-button"
+);
 
+const progressSlider = document.querySelector(".video-progress");
+const currentTimeText = document.querySelector(".video-current-time");
+const durationText = document.querySelector(".video-duration");
+
+function formatTime(seconds) {
+  if (!Number.isFinite(seconds)) {
+    return "0:00";
+  }
+
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = Math.floor(seconds % 60)
+    .toString()
+    .padStart(2, "0");
+
+  return `${minutes}:${remainingSeconds}`;
+}
+
+function updatePlayButton() {
+  if (featuredVideo.paused) {
+    playButton.textContent = "▶";
+    playButton.setAttribute("aria-label", "Play video");
+  } else {
+    playButton.textContent = "❚❚";
+    playButton.setAttribute("aria-label", "Pause video");
+  }
+}
+
+function updateMuteButton() {
+  if (featuredVideo.muted) {
+    muteButton.textContent = "🔇";
+    muteButton.setAttribute("aria-label", "Unmute video");
+  } else {
+    muteButton.textContent = "🔊";
+    muteButton.setAttribute("aria-label", "Mute video");
+  }
+}
+
+playButton?.addEventListener("click", () => {
+  if (featuredVideo.paused) {
+    featuredVideo.play().catch(() => {});
+  } else {
+    featuredVideo.pause();
+  }
+});
+
+featuredVideo?.addEventListener("click", () => {
+  if (featuredVideo.paused) {
+    featuredVideo.play().catch(() => {});
+  } else {
+    featuredVideo.pause();
+  }
+});
+
+muteButton?.addEventListener("click", () => {
+  featuredVideo.muted = !featuredVideo.muted;
+  updateMuteButton();
+});
+
+featuredVideo?.addEventListener("loadedmetadata", () => {
+  durationText.textContent = formatTime(featuredVideo.duration);
+});
+
+featuredVideo?.addEventListener("timeupdate", () => {
+  if (!featuredVideo.duration) {
+    return;
+  }
+
+  const progress =
+    (featuredVideo.currentTime / featuredVideo.duration) * 100;
+
+  progressSlider.value = progress;
+  currentTimeText.textContent = formatTime(featuredVideo.currentTime);
+});
+
+progressSlider?.addEventListener("input", () => {
+  if (!featuredVideo.duration) {
+    return;
+  }
+
+  featuredVideo.currentTime =
+    (progressSlider.value / 100) * featuredVideo.duration;
+});
+
+featuredVideo?.addEventListener("play", updatePlayButton);
+featuredVideo?.addEventListener("pause", updatePlayButton);
+
+fullscreenButton?.addEventListener("click", async () => {
+  try {
+    if (!document.fullscreenElement) {
+      await videoShell.requestFullscreen();
+      fullscreenButton.setAttribute("aria-label", "Exit fullscreen");
+    } else {
+      await document.exitFullscreen();
+      fullscreenButton.setAttribute("aria-label", "Enter fullscreen");
+    }
+  } catch (error) {
+    console.log("Fullscreen is not available.");
+  }
+});
+
+document.addEventListener("fullscreenchange", () => {
+  fullscreenButton.textContent = document.fullscreenElement ? "✕" : "⛶";
+});
+
+const videoObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+        featuredVideo.play().catch(() => {});
+      } else {
+        featuredVideo.pause();
+      }
+    });
+  },
+  {
+    threshold: [0, 0.5, 1]
+  }
+);
+
+if (featuredVideo) {
   videoObserver.observe(featuredVideo);
 }
+
+let controlsTimeout;
+
+function showControlsTemporarily() {
+  videoShell.classList.add("controls-visible");
+
+  clearTimeout(controlsTimeout);
+
+  controlsTimeout = setTimeout(() => {
+    if (!featuredVideo.paused) {
+      videoShell.classList.remove("controls-visible");
+    }
+  }, 2500);
+}
+
+videoShell?.addEventListener("mousemove", showControlsTemporarily);
+videoShell?.addEventListener("touchstart", showControlsTemporarily);
+
+updatePlayButton();
+updateMuteButton();
