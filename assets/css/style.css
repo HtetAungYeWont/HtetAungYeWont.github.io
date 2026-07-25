@@ -130,7 +130,10 @@ img, video, iframe { max-width: 100%; display: block; }
 .section-heading { margin-bottom:56px; }
 .split-heading { display:grid; grid-template-columns:1fr minmax(280px,430px); gap:48px; align-items:end; }
 .section-heading h2 { margin:0; font-size:clamp(3.3rem,6.7vw,7.6rem); line-height:.9; letter-spacing:-.065em; }
-.stroke-text { color:transparent; -webkit-text-stroke:1px rgba(255,255,255,.72); text-stroke:1px rgba(255,255,255,.72); }
+.stroke-text {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.72);
+}
 .gradient-text { color:var(--accent); background:linear-gradient(90deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
 .section-copy { max-width:430px; margin:0; color:var(--muted); font-size:1rem; }
 .heading-row { display:flex; align-items:flex-end; justify-content:space-between; gap:48px; }
